@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>초대장</title>
+    <style>
+        body { font-family: 'Arial', sans-serif; text-align: center; background-color: #f4f4f4; padding: 20px; }
+        .card { max-width: 400px; margin: 0 auto; background: white; padding: 30px; border-radius: 15px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); }
+        
+        /* 추가된 이미지 스타일: 영역을 벗어나지 않고 모서리를 둥글게 처리 */
+        .invite-image { width: 100%; height: auto; border-radius: 10px; margin-bottom: 20px; }
+        
+        h1 { color: #333; margin-top: 0; }
+        p { color: #666; line-height: 1.6; }
+        .button { display: inline-block; padding: 10px 20px; margin-top: 20px; background-color: #007bff; color: white; text-decoration: none; border-radius: 5px; }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <!-- 초대장 이미지 삽입 -->
+        <!-- 파일명과 확장자(jpg, png 등)를 깃허브에 올린 파일과 똑같이 맞춰주세요 -->
+        <img src="invite-photo.jpg" alt="초대장 메인 사진" class="invite-image">
+
+        <h1>초대합니다!</h1>
+        <p>소중한 분을 모십니다.</p>
+        <p><strong>일시:</strong> 2026년 O월 O일 O시</p>
+        <p><strong>장소:</strong> OOO</p>
+        
+        <!-- API 대신 사용할 수 있는 3가지 옵션 중 하나를 선택해 href에 넣으세요 -->
+        <!-- 옵션 1: 구글 폼 링크 -->
+        <!-- <a href="https://forms.gle/본인구글폼주소" class="button">참석 여부 알려주기</a> -->
+        
+        <!-- 옵션 2: 전화 걸기 -->
+        <a href="tel:010-1234-5678" class="button">참석 여부 알려주기 (전화)</a>
+        
+        <!-- 옵션 3: 문자 보내기 -->
+        <!-- <a href="sms:010-1234-5678" class="button">참석 여부 알려주기 (문자)</a> -->
+    </div>
+</body>
+</html>
