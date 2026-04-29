@@ -3,110 +3,178 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>초대장</title>
+    <title>프로젝트 다리 네트워킹 파티</title>
     
-    <!-- Swiper.js CSS (슬라이드 기능 디자인) -->
+    <!-- Swiper.js CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
     
     <style>
-        /* 화면 전체를 쓰도록 셋팅 */
+        /* 기본 배경 셋팅 */
         body { 
-            font-family: 'Arial', sans-serif; 
+            font-family: 'Pretendard', 'Arial', sans-serif; /* 더 깔끔한 폰트 적용 */
             text-align: center; 
             background-color: #000000; 
             margin: 0; 
             padding: 0; 
-            height: 100vh; /* 화면 꽉 차게 */
+            height: 100vh; 
             display: flex; 
             align-items: center; 
             justify-content: center; 
         }
         
-        /* Swiper 컨테이너 영역 */
-        .swiper { width: 100%; max-width: 400px; height: 100vh; max-height: 800px; }
+        /* Swiper 컨테이너 */
+        .swiper { width: 100%; max-width: 420px; height: 100vh; }
         .swiper-slide { display: flex; align-items: center; justify-content: center; padding: 20px; box-sizing: border-box; }
         
-        /* 기존 카드 디자인 */
-        .card { width: 100%; background: white; padding: 30px; border-radius: 15px; box-shadow: 0 4px 8px rgba(255,255,255,0.1); box-sizing: border-box; }
+        /* 초대장 카드 디자인 */
+        /* 내용이 길어지면 카드 안에서 스크롤되도록 설정 (overflow-y, max-height) */
+        .card { 
+            width: 100%; 
+            background: white; 
+            padding: 30px 20px; 
+            border-radius: 15px; 
+            box-shadow: 0 4px 15px rgba(255,255,255,0.15); 
+            box-sizing: border-box; 
+            max-height: 90vh; 
+            overflow-y: auto; 
+        }
+        
         .invite-image { width: 100%; height: auto; border-radius: 10px; margin-bottom: 20px; }
         
-        h1 { color: #333; margin-top: 0; }
-        p { color: #666; line-height: 1.6; }
-        .button { display: inline-block; padding: 10px 20px; margin-top: 20px; background-color: #007bff; color: white; text-decoration: none; border-radius: 5px; }
+        h1 { color: #222; margin-top: 0; font-size: 24px; }
+        .desc { color: #555; line-height: 1.6; font-size: 14.5px; word-break: keep-all; margin-bottom: 25px; }
+        
+        /* 행사 상세 정보 박스 */
+        .info-box {
+            background-color: #f8f9fa;
+            border-radius: 10px;
+            padding: 15px;
+            text-align: left;
+            margin-bottom: 25px;
+            font-size: 14px;
+            color: #333;
+            line-height: 1.8;
+        }
+        .info-box p { margin: 3px 0; }
+        .info-box strong { color: #000; }
 
-        /* 하단 페이지네이션(점) 색상을 하얗게 변경하여 검은 배경에서 잘 보이게 */
+        /* 버튼 스타일 */
+        .btn-group { display: flex; flex-direction: column; gap: 10px; }
+        .button { 
+            display: block; 
+            padding: 14px; 
+            background-color: #222; /* 검은색 테마에 맞춘 다크그레이 버튼 */
+            color: white; 
+            text-decoration: none; 
+            border-radius: 8px; 
+            font-weight: bold; 
+            font-size: 15px;
+            width: 100%; 
+            box-sizing: border-box; 
+        }
+        .button.outline { 
+            background-color: white; 
+            color: #222; 
+            border: 1px solid #222; 
+        }
+
+        /* 페이지네이션 및 애니메이션 */
         .swiper-pagination-bullet { background: #ffffff; opacity: 0.5; }
         .swiper-pagination-bullet-active { background: #ffffff; opacity: 1; }
-
-        /* 사용자에게 스와이프를 유도하는 흔들리는 글씨 애니메이션 */
         .swipe-hint { margin-top: 20px; font-size: 13px; color: #888; animation: moveLeft 1.5s infinite; }
         @keyframes moveLeft { 
             0%, 100% { transform: translateX(0); } 
             50% { transform: translateX(-10px); } 
         }
+
+        /* 스크롤바 숨기기 (깔끔한 디자인을 위해) */
+        .card::-webkit-scrollbar { display: none; }
+        .card { -ms-overflow-style: none; scrollbar-width: none; }
     </style>
 </head>
 <body>
 
-    <!-- Swiper 메인 컨테이너 -->
     <div class="swiper">
         <div class="swiper-wrapper">
             
-            <!-- 첫 번째 페이지 (슬라이드 1) -->
+            <!-- 첫 번째 페이지 (한국어) -->
             <div class="swiper-slide">
                 <div class="card">
                     <img src="TESTIMG.jpg" alt="초대장 메인 사진" class="invite-image">
-                    <h1>초대합니다!</h1>
-                    <p>소중한 분을 모십니다. 테스트 문구입니다.<br/>
-                    소중한 분을 모십니다. 테스트 문구입니다.<br/>
-                    소중한 분을 모십니다. 테스트 문구입니다.</p>
-                    <p>소중한 분을 모십니다. 테스트 문구입니다.</p>
-                    <p>소중한 분을 모십니다. 테스트 문구입니다.</p>
-                    <p>소중한 분을 모십니다. 테스트 문구입니다.</p>
-                    <p>소중한 분을 모십니다. 테스트 문구입니다.</p>
-                    <p>소중한 분을 모십니다. 테스트 문구입니다.</p>
+                    <h1>안녕하세요!</h1>
+                    <div class="desc">
+                        프로듀서 콜렉티브 그룹 프로젝트 다리입니다.<br>
+                        거리예술 동료들을 만나는 오프 네트워킹 파티를 엽니다.<br><br>
+                        그동안 못다 했던 이야기들, 처음 만나는 새로운 얼굴들,<br>
+                        인사와 회고, 수다가 가득한 작은 이야기 장을 마련하였으니 편하게 발걸음해주세요.<br><br>
+                        소정의 참여비가 있습니다.<br>
+                        간단한 다과와 음료(맥주, 와인, 무알콜)를 준비하였어요.<br><br>
+                        즐거운 담소의 장에 함께해주세요!
+                    </div>
+
+                    <div class="info-box">
+                        <p><strong>· 일시 :</strong> 2026년 5월 2일 (토) 21:00 ~ </p>
+                        <p><strong>· 장소 :</strong> 레이백 재즈라이브카페<br>&nbsp;&nbsp;(고잔동 771-1, 2층)</p>
+                        <p><strong>· 참여비 :</strong> 15,000원</p>
+                        <p><strong>· 주인장 :</strong> 프로젝트 다리 (현진, 유진, 시진, 아라)</p>
+                        <p><strong>· 문의 :</strong> (추후 번호 또는 카톡 링크 입력)</p>
+                    </div>
+
+                    <div class="btn-group">
+                        <a href="https://maps.app.goo.gl/WkxbtrpSfFpLueAD9" target="_blank" class="button outline">📍 만남 장소 (지도 보기)</a>
+                        <!-- 구글 폼 링크가 나오면 아래 # 자리에 주소를 넣으세요 -->
+                        <a href="#" target="_blank" class="button">📝 참석여부 전달하기 (구글 폼)</a>
+                    </div>
                     
-                    <!-- 넘어갈 수 있다는 것을 알려주는 애니메이션 문구 -->
-                    <div class="swipe-hint">옆으로 넘겨주세요 👉</div>
+                    <div class="swipe-hint">English - Swipe to continue 👉</div>
                 </div>
             </div>
 
-            <!-- 두 번째 페이지 (슬라이드 2) -->
+            <!-- 두 번째 페이지 (영어) -->
             <div class="swiper-slide">
                 <div class="card">
-                    <h2>초대 상세 안내</h2>
-                    <p>소중한 분을 모십니다. 테스트 문구입니다.<br/>
-                    소중한 분을 모십니다. 테스트 문구입니다.<br/></p>
-                    <p>소중한 분을 모십니다. 테스트 문구입니다.</p>
-                    <p>소중한 분을 모십니다. 테스트 문구입니다.</p>
-                    <p><strong>일시:</strong> 2026년 O월 O일 O시</p>
-                    <p><strong>장소:</strong> OOO</p>
-                    <a href="tel:010-1234-5678" class="button">참석 여부 알려주기 (전화 주세용)</a>
-                    <a href="sms:010-1234-5678" class="button">참석 여부 알려주기 (문자 주세용)</a>
+                    <img src="TESTIMG.jpg" alt="초대장 메인 사진" class="invite-image">
+                    <h1>Hello, Hola, Bonsoir</h1>
+                    <div class="desc">
+                        We are Project DARI, a producer collective group.<br>
+                        We are hosting an off networking party to bring together fellow street arts colleagues.<br><br>
+                        We’ve prepared a small, welcoming space filled with conversations—stories we haven’t had the chance to share, new faces meeting for the first time, warm greetings, reflections, and plenty of casual chats.<br><br>
+                        Please feel free to drop by and join us. A small participation fee will go toward light refreshments and drinks (beer, wine, and non-alcoholic options).<br><br>
+                        We would love for you to join us for an enjoyable and relaxed evening of conversation!
+                    </div>
+
+                    <div class="info-box">
+                        <p><strong>· DATE :</strong> May 2 (Sat) 21:00 ~ </p>
+                        <p><strong>· VENUE :</strong> Laid Back Jazz Cafe (2F)</p>
+                        <p><strong>· FEE :</strong> 15,000 KRW (Cash)</p>
+                        <p><strong>· HOST :</strong> Project DARI<br>&nbsp;&nbsp;(Jin, Yoojin, Sijin, Ara)</p>
+                        <p><strong>· ASK :</strong> (추후 번호 또는 카톡 링크 입력)</p>
+                    </div>
+
+                    <div class="btn-group">
+                        <a href="https://maps.app.goo.gl/WkxbtrpSfFpLueAD9" target="_blank" class="button outline">📍 Meeting place (Map)</a>
+                        <!-- 구글 폼 링크가 나오면 아래 # 자리에 주소를 넣으세요 -->
+                        <a href="#" target="_blank" class="button">📝 RSVP (Google Form)</a>
+                    </div>
                 </div>
             </div>
-            
-            <!-- 원하신다면 여기에 3번째, 4번째 <div class="swiper-slide">를 계속 추가할 수 있습니다. -->
 
         </div>
         
-        <!-- 하단에 몇 번째 페이지인지 알려주는 점(Pagination) -->
         <div class="swiper-pagination"></div>
     </div>
 
-    <!-- Swiper.js 자바스크립트 불러오기 -->
+    <!-- Swiper.js -->
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-
-    <!-- 스와이프 기능 실행 코드 -->
     <script>
         const swiper = new Swiper('.swiper', {
-            direction: 'horizontal', // 좌우 슬라이드 (위아래로 하려면 'vertical'로 변경)
-            loop: false,             // 끝까지 가면 멈춤 (무한 반복하려면 true)
-            grabCursor: true,        // PC 마우스오버 시 손바닥 모양 아이콘 (드래그 유도)
-            spaceBetween: 50,        // 페이지 넘어갈 때 카드 사이의 여백
+            direction: 'horizontal',
+            loop: false,
+            grabCursor: true,
+            spaceBetween: 50,
             pagination: {
                 el: '.swiper-pagination',
-                clickable: true,     // 하단 점을 클릭해도 페이지 이동 가능
+                clickable: true,
             },
         });
     </script>
