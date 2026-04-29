@@ -4,50 +4,112 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>초대장</title>
+    
+    <!-- Swiper.js CSS (슬라이드 기능 디자인) -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    
     <style>
-        /* body의 background-color를 #000000(검은색)으로 변경했습니다. */
-        body { font-family: 'Arial', sans-serif; text-align: center; background-color: #000000; padding: 20px; }
-        .card { max-width: 400px; margin: 0 auto; background: white; padding: 30px; border-radius: 15px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); }
+        /* 화면 전체를 쓰도록 셋팅 */
+        body { 
+            font-family: 'Arial', sans-serif; 
+            text-align: center; 
+            background-color: #000000; 
+            margin: 0; 
+            padding: 0; 
+            height: 100vh; /* 화면 꽉 차게 */
+            display: flex; 
+            align-items: center; 
+            justify-content: center; 
+        }
         
-        /* 추가된 이미지 스타일: 영역을 벗어나지 않고 모서리를 둥글게 처리 */
+        /* Swiper 컨테이너 영역 */
+        .swiper { width: 100%; max-width: 400px; height: 100vh; max-height: 800px; }
+        .swiper-slide { display: flex; align-items: center; justify-content: center; padding: 20px; box-sizing: border-box; }
+        
+        /* 기존 카드 디자인 */
+        .card { width: 100%; background: white; padding: 30px; border-radius: 15px; box-shadow: 0 4px 8px rgba(255,255,255,0.1); box-sizing: border-box; }
         .invite-image { width: 100%; height: auto; border-radius: 10px; margin-bottom: 20px; }
         
         h1 { color: #333; margin-top: 0; }
         p { color: #666; line-height: 1.6; }
         .button { display: inline-block; padding: 10px 20px; margin-top: 20px; background-color: #007bff; color: white; text-decoration: none; border-radius: 5px; }
+
+        /* 하단 페이지네이션(점) 색상을 하얗게 변경하여 검은 배경에서 잘 보이게 */
+        .swiper-pagination-bullet { background: #ffffff; opacity: 0.5; }
+        .swiper-pagination-bullet-active { background: #ffffff; opacity: 1; }
+
+        /* 사용자에게 스와이프를 유도하는 흔들리는 글씨 애니메이션 */
+        .swipe-hint { margin-top: 20px; font-size: 13px; color: #888; animation: moveLeft 1.5s infinite; }
+        @keyframes moveLeft { 
+            0%, 100% { transform: translateX(0); } 
+            50% { transform: translateX(-10px); } 
+        }
     </style>
 </head>
 <body>
-    <div class="card">
-        <!-- 초대장 이미지 삽입 -->
-        <!-- 이미지 경로를 TESTIMG.jpg로 변경했습니다. -->
-        <img src="TESTIMG.jpg" alt="초대장 메인 사진" class="invite-image">
 
-        <h1>초대합니다!</h1>
-        <p>테스트 문구입니다.
-            테스트 문구입니다.
-            테스트 문구입니다.
-            테스트 문구입니다.
-            테스트 문구입니다.
-            테스트 문구입니다.
-        </p>
-        <p>테스트 문구입니다.</p>
-        <p>테스트 문구입니다.</p>
-        <p>테스트 문구입니다.</p>
-        <p>테스트 문구입니다.</p>
-        <p>테스트 문구입니다.</p>
-        <p>테스트 문구입니다.</p>
-        <p><strong>일시:</strong> 2026년 O월 O일 O시</p>
-        <p><strong>장소:</strong> OOO</p>
+    <!-- Swiper 메인 컨테이너 -->
+    <div class="swiper">
+        <div class="swiper-wrapper">
+            
+            <!-- 첫 번째 페이지 (슬라이드 1) -->
+            <div class="swiper-slide">
+                <div class="card">
+                    <img src="TESTIMG.jpg" alt="초대장 메인 사진" class="invite-image">
+                    <h1>초대합니다!</h1>
+                    <p>소중한 분을 모십니다. 테스트 문구입니다.<br/>
+                    소중한 분을 모십니다. 테스트 문구입니다.<br/>
+                    소중한 분을 모십니다. 테스트 문구입니다.</p>
+                    <p>소중한 분을 모십니다. 테스트 문구입니다.</p>
+                    <p>소중한 분을 모십니다. 테스트 문구입니다.</p>
+                    <p>소중한 분을 모십니다. 테스트 문구입니다.</p>
+                    <p>소중한 분을 모십니다. 테스트 문구입니다.</p>
+                    <p>소중한 분을 모십니다. 테스트 문구입니다.</p>
+                    
+                    <!-- 넘어갈 수 있다는 것을 알려주는 애니메이션 문구 -->
+                    <div class="swipe-hint">옆으로 넘겨주세요 👉</div>
+                </div>
+            </div>
+
+            <!-- 두 번째 페이지 (슬라이드 2) -->
+            <div class="swiper-slide">
+                <div class="card">
+                    <h2>초대 상세 안내</h2>
+                    <p>소중한 분을 모십니다. 테스트 문구입니다.<br/>
+                    소중한 분을 모십니다. 테스트 문구입니다.<br/></p>
+                    <p>소중한 분을 모십니다. 테스트 문구입니다.</p>
+                    <p>소중한 분을 모십니다. 테스트 문구입니다.</p>
+                    <p><strong>일시:</strong> 2026년 O월 O일 O시</p>
+                    <p><strong>장소:</strong> OOO</p>
+                    <a href="tel:010-1234-5678" class="button">참석 여부 알려주기 (전화 주세용)</a>
+                    <a href="sms:010-1234-5678" class="button">참석 여부 알려주기 (문자 주세용)</a>
+                </div>
+            </div>
+            
+            <!-- 원하신다면 여기에 3번째, 4번째 <div class="swiper-slide">를 계속 추가할 수 있습니다. -->
+
+        </div>
         
-        <!-- 옵션 1: 구글 폼 링크 -->
-        <!-- <a href="https://forms.gle/본인구글폼주소" class="button">참석 여부 알려주기</a> -->
-        
-        <!-- 옵션 2: 전화 걸기 -->
-        <a href="tel:010-1234-5678" class="button">참석 여부 알려주기 (전화 주세용)</a>
-        
-        <!-- 옵션 3: 문자 보내기 -->
-        <a href="sms:010-1234-5678" class="button">참석 여부 알려주기 (문자 주세용)</a>
+        <!-- 하단에 몇 번째 페이지인지 알려주는 점(Pagination) -->
+        <div class="swiper-pagination"></div>
     </div>
+
+    <!-- Swiper.js 자바스크립트 불러오기 -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+    <!-- 스와이프 기능 실행 코드 -->
+    <script>
+        const swiper = new Swiper('.swiper', {
+            direction: 'horizontal', // 좌우 슬라이드 (위아래로 하려면 'vertical'로 변경)
+            loop: false,             // 끝까지 가면 멈춤 (무한 반복하려면 true)
+            grabCursor: true,        // PC 마우스오버 시 손바닥 모양 아이콘 (드래그 유도)
+            spaceBetween: 50,        // 페이지 넘어갈 때 카드 사이의 여백
+            pagination: {
+                el: '.swiper-pagination',
+                clickable: true,     // 하단 점을 클릭해도 페이지 이동 가능
+            },
+        });
+    </script>
+
 </body>
 </html>
